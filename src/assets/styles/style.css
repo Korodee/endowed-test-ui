@@ -91,6 +91,7 @@ select {
   color: #4f4f4f;
   background: #fff;
   width: -webkit-fill-available;
+  width: -moz-available;
   padding: 14px;
   margin: 12px 0;
   outline: none;
@@ -233,6 +234,7 @@ select {
     flex-direction: column;
   }
   .states {
+    gap: 4px;
     flex-direction: column;
   }
   .lga {
