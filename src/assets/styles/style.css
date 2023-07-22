@@ -90,7 +90,9 @@ select {
   border: 1px solid #4e598c;
   color: #4f4f4f;
   background: #fff;
-  width: -webkit-fill-available;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
   padding: 14px;
   margin: 12px 0;
   outline: none;
