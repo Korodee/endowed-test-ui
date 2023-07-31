@@ -1,6 +1,6 @@
 body {
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: top -11rem left 5rem;
   background-color: white;
   background-image: url("assets/svg/skewed-background.svg");
 }
