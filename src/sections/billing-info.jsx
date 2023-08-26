@@ -103,12 +103,26 @@ const FormattedCardNumberInput = ({ onBlur }) => {
     }
   };
 
+  const handleFocus = () => {
+    // Temporarily disable formatting while focused
+    setCardNumber(cardNumber.replace(/\s/g, ""));
+  };
+
+  const handleBlur = (event) => {
+    // Reapply formatting when blurred
+    const value = event.target.value;
+    const formattedValue = formatCardNumber(value);
+    setCardNumber(formattedValue);
+    onBlur();
+  };
+
   return (
     <input
       type="text"
       value={cardNumber}
       onChange={handleCardNumberChange}
-      onBlur={onBlur}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
       onInput={handleInput} // Listen for input event
       maxLength={19} // 16 digits + 3 spaces
     />
