@@ -95,6 +95,13 @@ const FormattedCardNumberInput = ({ onBlur }) => {
       onBlur(); // Trigger the onBlur callback to blur the input
     }
   };
+  const handleInput = (event) => {
+    // Handle autofill separately
+    if (event.inputType === "insertText" && event.data) {
+      const formattedValue = formatCardNumber(event.data);
+      setCardNumber(formattedValue);
+    }
+  };
 
   return (
     <input
@@ -102,6 +109,7 @@ const FormattedCardNumberInput = ({ onBlur }) => {
       value={cardNumber}
       onChange={handleCardNumberChange}
       onBlur={onBlur}
+      onInput={handleInput} // Listen for input event
       maxLength={19} // 16 digits + 3 spaces
     />
   );
